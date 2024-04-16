@@ -84,8 +84,12 @@ const config = {
             database: TYPEORM_DATABASE,
             synchronize: ENV === 'dev' ? true : false,
             logging: ENV === 'dev' ? TYPEORM_LOGGING : false,
-            entities: [path.join(__dirname, './configurations/entities/*.ts')],
-            migrations: [path.join(__dirname, './configurations/migrations/*.ts')]
+            entities: [
+                path.join(__dirname, './configurations/entities/*.{js,ts}')
+            ],
+            migrations: [
+                path.join(__dirname, './configurations/migrations/*.{js,ts}')
+            ]
         }
     }
 };
