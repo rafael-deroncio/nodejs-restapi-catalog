@@ -1,24 +1,24 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { CategoryEntity } from "./category.entity";
 
-@Entity({ name: 'categories', database: 'catalog' })
+@Entity({ name: 'categories' })
 export class ProductEntity extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column()
+    @Column({ type: 'varchar' })
     name!: string;
 
-    @Column()
+    @Column({ type: 'varchar' })
     description!: string;
 
     @Column('decimal', { precision: 10, scale: 2 })
     price!: number;
 
-    @Column()
+    @Column({ type: 'int' })
     stock!: number;
 
-    @Column()
+    @Column({ type: 'boolean', default: true })
     active!: boolean;
 
     @ManyToOne(() => CategoryEntity, category => category.products)

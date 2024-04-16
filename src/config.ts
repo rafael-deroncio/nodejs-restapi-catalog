@@ -1,13 +1,17 @@
 import IParameters from "./configurations/interfaces/iparameters";
 import Parameters from "./configurations/parameters";
 import http from 'http';
+import path from 'path';
 
 const parameters: IParameters = Parameters.instance();
 
 const HOST: string = parameters.environment().APP_HOST ?? 'localhost';
 const PORT: string = parameters.environment().APP_PORT ?? '3000';
 const ENV: string = parameters.environment().APP_ENV ?? 'dev';
-const LOG_PATH: string = parameters.environment().LOG_PATH ?? './logs';
+
+const TYPEORM_TYPE: string = parameters.environment().TYPEORM_TYPE ?? 'sqlite';
+const TYPEORM_DATABASE: string = parameters.environment().TYPEORM_DATABASE ?? './database.sqlite';
+const TYPEORM_LOGGING: boolean = Boolean(parameters.environment().TYPEORM_LOGGING) ?? false;
 
 const config = {
     server: {
@@ -69,6 +73,17 @@ const config = {
             }
         }
     },
+
+    database: {
+        options: {
+            type: TYPEORM_TYPE,
+            database: TYPEORM_DATABASE,
+            synchronize: ENV === 'dev' ? true : false,
+            logging: ENV === 'dev' ? TYPEORM_LOGGING : false,
+            entities: [path.join(__dirname, './configurations/entities/*.ts')],
+            migrations: [path.join(__dirname, './configurations/migrations/*.ts')]
+        }
+    }
 };
 
 export default config;
