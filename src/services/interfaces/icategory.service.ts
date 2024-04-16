@@ -4,10 +4,12 @@ import CategoryResponse from "../../responses/category.response"
 
 interface ICategoryService {
     paged(request: PaginationRequest): Promise<Array<CategoryResponse>>
-    get(): Promise<CategoryResponse>
+    get(id: number): Promise<CategoryResponse>
     create(request: CategoryRequest): Promise<CategoryResponse>
     update(id: number, request: CategoryRequest): Promise<CategoryResponse>
-    request(id: number): Promise<boolean>
+    delete(id: number): Promise<boolean>
+
+    getTotalCategories(): Promise<number>
 }
 
 export default ICategoryService;
