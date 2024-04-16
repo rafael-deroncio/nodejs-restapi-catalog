@@ -5,8 +5,8 @@ const routes: Router = Router();
 
 routes.get('/', controller.index);
 
-routes.post('/product');
 routes.get('/products');
+routes.post('/product', );
 routes.get('/product/:id');
 routes.put('/product/:id');
 routes.delete('/product/:id');
