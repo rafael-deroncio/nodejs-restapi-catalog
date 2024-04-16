@@ -1,7 +1,7 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { ProductEntity } from "./product.entity";
 
-@Entity({ name: 'products'})
+@Entity({ name: 'categoryes'})
 export class CategoryEntity extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
     id!: number;

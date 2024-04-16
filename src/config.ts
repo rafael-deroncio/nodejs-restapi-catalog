@@ -14,6 +14,10 @@ const TYPEORM_DATABASE: string = parameters.environment().TYPEORM_DATABASE ?? '.
 const TYPEORM_LOGGING: boolean = Boolean(parameters.environment().TYPEORM_LOGGING) ?? false;
 
 const config = {
+    app: {
+        environment: ENV,
+    },
+
     server: {
         host: HOST,
         port: PORT,
