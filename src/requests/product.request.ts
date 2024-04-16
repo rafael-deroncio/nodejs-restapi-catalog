@@ -1,4 +1,4 @@
 import ProductDTO from "../configurations/dtos/product.dto";
 
-type ProductResquest = Omit<ProductDTO, 'active' | 'created' | 'updated'>
-export default ProductResquest;
+type ProductRequest = Omit<ProductDTO, 'active' | 'created' | 'updated'>
+export default ProductRequest;
