@@ -1,20 +1,13 @@
 import { Router } from "express";
 import controller from "./controllers/index.controller";
+import product from "./routes/product.route";
+import category from "./routes/category.route";
 
 const routes: Router = Router();
 
 routes.get('/', controller.index);
 
-routes.get('/products');
-routes.post('/product', );
-routes.get('/product/:id');
-routes.put('/product/:id');
-routes.delete('/product/:id');
-
-routes.post('/category');
-routes.get('/categories');
-routes.get('/category/:id');
-routes.put('/category/:id');
-routes.delete('/category/:id');
+routes.use(product);
+routes.use(category);
 
 export default routes;
