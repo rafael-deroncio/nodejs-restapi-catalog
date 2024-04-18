@@ -26,6 +26,15 @@ class ProductContract implements IRequestContract {
             'number.base': 'Product stock must be a number.',
             'number.min': 'Product stock must be at least 0.',
             'number.max': 'Product stock must be at most 1000.'
+        }),
+        category: Joi.object({
+            id: Joi.number().required().min(0).messages({
+                'any.required': 'Product Category ID is required.',
+                'number.base': 'Product Category ID must be a number.',
+                'number.min': 'Product Category ID must be at least 0.'
+            }).required()
+        }).required().messages({
+            'any.required': 'Product category is required.'
         })
     })
 }
