@@ -6,7 +6,7 @@ import CategoryResponse from "../responses/category.response";
 import ICategoryService from "./interfaces/icategory.service";
 import ICategoryRepository from "../repositories/interfaces/icategory.repository";
 import CategoryRepository from "../repositories/category.repository";
-import PaginationArgument from "../arguments/pagination.request";
+import PaginationArgument from "../arguments/pagination.argument";
 import CategoryModel from "../models/category.model";
 import CategoryException from "../exceptions/category.exception";
 import { StatusCodes } from "http-status-codes";

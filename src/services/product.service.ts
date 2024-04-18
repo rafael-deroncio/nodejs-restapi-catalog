@@ -9,7 +9,7 @@ import PaginationRequest from "../requests/pagination.request";
 import ProductRequest from "../requests/product.request";
 import ProductResponse from "../responses/product.response";
 import IProductService from "./interfaces/iproduct.service";
-import PaginationArgument from "../arguments/pagination.request";
+import PaginationArgument from "../arguments/pagination.argument";
 import CategoryResponse from "../responses/category.response";
 import ICategoryService from "./interfaces/icategory.service";
 import CategoryService from "./category.service";
