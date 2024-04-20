@@ -1,4 +1,16 @@
+import { Expose } from "class-transformer";
 import CategoryDTO from "../configurations/dtos/category.dto";
 
-type CategoryRequest = Omit<CategoryDTO, 'active' | 'created' | 'updated'>
+class CategoryRequest implements Omit<CategoryDTO, 'active' | 'created' | 'updated'> {
+    @Expose()
+    name!: string;
+
+    @Expose()
+    description!: string;
+
+    @Expose()
+    id!: number;
+}
 export default CategoryRequest;
+
+
