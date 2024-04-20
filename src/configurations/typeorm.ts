@@ -7,6 +7,7 @@ export const options = { ...config.database.options } as DataSourceOptions
 export const typeorm = new DataSource(options);
 export const initialize = () => typeorm.initialize()
     .then(async (database) => {
+console.log(options);
 
         let categories: Array<CategoryEntity> = []
 
